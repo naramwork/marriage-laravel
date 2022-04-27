@@ -1,0 +1,26 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+body{
+    direction: rtl;
+}
+
+/* Print user info */
+@media print{
+/* print.css */
+header, footer, aside, nav, form, iframe, .menu, .hero, .adslot {
+    display: none;
+  }
+
+  .hide_print{
+    display: none;  
+  }
+
+  .page_end{
+    page-break-after: always;
+  }
+}
+
+[x-cloak] { display: none !important; }
