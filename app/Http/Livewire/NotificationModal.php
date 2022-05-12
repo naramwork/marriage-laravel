@@ -47,9 +47,7 @@ class NotificationModal extends ModalComponent
         if($this->image){
             $imageName = time().'.'.$this->image->extension(); 
             $this->image->storeAs("public/images",$imageName);
-            $naram = new OptimizerChain();
-            $naram->optimize(url('/') .'/storage/images/'.$imageName);
-
+        
             $extraNotificationData = [
                 "body" => $this->body,
                 "title" => $this->title,
@@ -63,12 +61,8 @@ class NotificationModal extends ModalComponent
             ];
     
         }
-        $type = 1;
-        $topic = '/topics/generalTest2';
-        if($this->app_type ===  config('enums.app_type')['marriage']){
-            $type = 0;
+        $type = 0;
             $topic = '/topics/marriage';
-        }
         
         $newNotification = new Notification();
         $newNotification->body = $this->body;

@@ -17,11 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect(route('dashboard'));
 });
+Route::get('/privacy', function () {
+    return view('privacy');
+});
 
 
 Route::get('/visitor', Visitor::class)->name('visitor');
 
-
+// Route::get('/generate', function () {
+//     $targetFolder = '/home/naramapps/public_html/laravel/storage/app/public';
+//     $linkFolder = '/home/naramapps/public_html/storage';
+//     symlink($targetFolder, $linkFolder);
+//     echo 'Symlink completed';
+// })->name('generate');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified', CheckStatus::class]], function () {
 

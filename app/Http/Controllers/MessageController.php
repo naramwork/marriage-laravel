@@ -65,7 +65,7 @@ class MessageController extends Controller
             return CustomerProfile::with('user')->where('birthdate', '>=', date($searchQuery))->where('gender', '!=', $gender)->get();
         } elseif ($type == 'name') {
 
-            $results = Search::add(User::where('profile', CustomerProfile::class), ['name'])
+            $results = Search::add(User::where('profile_type', CustomerProfile::class), ['name'])
                 ->soundsLike()
                 ->dontParseTerm()
                 ->get($search);

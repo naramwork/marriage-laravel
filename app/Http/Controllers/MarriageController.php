@@ -114,10 +114,15 @@ class MarriageController extends Controller
     // if the user is male show female users and ......
     public function get_random(String $gender)
     {
-        return CustomerProfile::with(['user'])->inRandomOrder()->Where('gender', '!=', $gender)->take(10)->get();
+        return CustomerProfile::with(['user'])->inRandomOrder()->Where('gender', '!=', $gender)->paginate(10);
     }
 
 
+    //get all users to show all result when user not logged in
+    public function get_all_user()
+    {
+        return CustomerProfile::with(['user'])->inRandomOrder()->paginate(10);
+    }
 
     public function sendFcmNotification(array $tokenList, String $body)
     {

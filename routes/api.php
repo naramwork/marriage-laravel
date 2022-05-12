@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/sign_up', [RegisteredUserController::class, 'store']);
 //Marriage Public Routes
 Route::get('/marriage_notification', [ContentApiController::class, 'getMarriageNotification']);
+Route::get('/get_all_user', [MarriageController::class, 'get_all_user']);
 
 
 
