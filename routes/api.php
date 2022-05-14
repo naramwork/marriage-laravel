@@ -25,6 +25,7 @@ Route::post('/sign_up', [RegisteredUserController::class, 'store']);
 //Marriage Public Routes
 Route::get('/marriage_notification', [ContentApiController::class, 'getMarriageNotification']);
 Route::get('/get_all_user', [MarriageController::class, 'get_all_user']);
+Route::get('/get_random/{gender}', [MarriageController::class, 'get_random']);
 
 
 
@@ -61,7 +62,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 
     //Marriage Routes
-    Route::get('/get_random/{gender}', [MarriageController::class, 'get_random']);
     Route::post('/send_marriage_request', [MarriageController::class, 'store']);
     Route::get('/get_marriage_requests/{id}', [MarriageController::class, 'show']);
     Route::post('/marriage_request_update', [MarriageController::class, 'update']);
