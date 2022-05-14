@@ -34,7 +34,7 @@ Route::post('/check_user', [AuthAppUser::class, 'check_user_exists']);
 
 
 //app info links
-Route::get('m_about_us', [MarriageApiController::class, 'getMarriageAboutUs']);
+Route::get('m_about_us', [ContentApiController::class, 'getMarriageAboutUs']);
 Route::get('call_us', [AppInfoController::class, 'getCallUs']);
 Route::get('app_ad', [AppInfoController::class, 'getAppAd']);
 Route::get('marriage_explain', [AppInfoController::class, 'getMarriageExplain']);
